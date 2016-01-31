@@ -1,9 +1,13 @@
 {
-  "name": "@unique-violation/cydux",
+  "name": "cydux",
   "version": "0.1.0",
   "description": "Event handler and data store for React.js projects",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
+    "build:lib": "babel src --out-dir lib",
+    "build:umd": "webpack src/index.js dist/cydux.js --config webpack.config.development.js",
+    "build:umd:min": "webpack -p src/index.js dist/cydux.min.js --config webpack.config.production.js",
+    "build": "npm run build:lib && npm run build:umd && npm run build:umd:min",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive",
     "test:watch": "npm run test -- --watch"
   },

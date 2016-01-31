@@ -3,9 +3,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TreeWalker from './utils/TreeWalker.js';
 
-export default function createAnode(mixins) {
+export default function createAnode(mixins = []) {
   const Anode = React.createClass({
-    mixins: [mixins],
+    mixins: mixins,
 
     contextTypes: {
       alias: React.PropTypes.string,

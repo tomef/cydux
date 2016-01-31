@@ -98,12 +98,12 @@ describe('cydux', () => {
           Click me
         </Anode>
         <div>
-          <Anode
-            tag="child-anode2"
+          <span
+            data-tag="child-anode2"
             className="button2"
             >
             No click me
-          </Anode>
+          </span>
         </div>
       </Anode>, document.getElementById('app'));
     const { eventStream, emitter } = createEventStream({

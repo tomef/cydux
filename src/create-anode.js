@@ -1,6 +1,7 @@
 import getNodeMap from './get-node-map';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import TreeWalker from './utils/TreeWalker.js';
 
 export default function createAnode(mixins) {
   const Anode = React.createClass({
@@ -44,7 +45,7 @@ export default function createAnode(mixins) {
         const aidObj = { alias, aid };
         const nodeMap = getNodeMap();
         const node = ReactDOM.findDOMNode(this);
-        const treeWalker = document.createTreeWalker(node);
+        let treeWalker = new TreeWalker(node);
         if (nodeMap.get(treeWalker.currentNode) === undefined) {
           nodeMap.set(treeWalker.currentNode, aidObj);
         }
